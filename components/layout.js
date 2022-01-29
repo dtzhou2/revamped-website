@@ -5,7 +5,7 @@ import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
 const name = 'Daniel Zhou'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'streisand.ovh'
 
 export default function Layout({ children, home }) {
   return (
@@ -26,48 +26,25 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        {home ? (
-          <>
-            {/* <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt={name}
-            /> */}
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/profile.jpg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
+        <div className={styles.inner}>
           <Link href="/about_me">
-            <a>← Back to About Me</a>
+              <a> About Me</a>
+          </Link>
+          <Link href="/">
+              <a> Blog </a>
+          </Link>
+          {/* <Link href="shop">
+              <a> Shop </a>
+          </Link> */}
+          <Link href="gallery">
+              <a> Gallery </a>
+          </Link>
+          <Link href="https://nextcloud.streisand.ovh">
+              <a > Cloud Storage</a>
           </Link>
         </div>
-      )}
+      </header>
+      <main className={`${utilStyles.content}`}>{children}</main>
     </div>
   )
 }
